@@ -2,6 +2,12 @@
 
 All of the generators!
 
+
+
+[![Clojars Project](http://clojars.org/gin/latest-version.svg)](http://clojars.org/gin)
+
+[![Build Status](https://travis-ci.org/cgore/gin.svg?branch=master)](https://travis-ci.org/cgore/gin)
+
 ## Usage
 
 ```clojure
