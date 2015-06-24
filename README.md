@@ -10,6 +10,8 @@ All of the generators!
 
 ## Usage
 
+You can generate `double`s or `float`s.
+
 ```clojure
 (gen/sample double)
 ;; => (0.0 -0.3044548010557556 0.3608557265686346 0.07745626015936646
@@ -18,6 +20,21 @@ All of the generators!
 (gen/sample float)
 ;; => (0.0 -0.8967302 -0.50622207 1.4199667 -2.7915213 0.31590796 -0.66204447
 ;;     0.0 -0.96169204 2.6542187)
+```
+
+You can generate lots of different strings.
+
+- You can restrict the string to only letters with `string-alpha`.
+- You can restrict the string to only lower-case letters with `string-alpha-lower`.
+- You can restrict the string to only upper-case letters with `string-alpha-upper`.
+
+```clojure
+(gen/sample string-alpha)
+;; => ("" "" "Im" "" "vgS" "S" "ry" "tFROxf" "zzUKDEo" "XOIUr")
+(gen/sample string-alpha-lower)
+;; => ("" "x" "om" "nbb" "" "tx" "p" "hmaj" "owdzu" "qkypmut")
+(gen/sample string-alpha-upper)
+;; => ("" "D" "" "" "K" "QY" "DZWM" "GFJZLI" "BVGRNY" "YZUKLGQBD")
 ```
 
 ## License

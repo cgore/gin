@@ -6,12 +6,12 @@
             [clojure.test.check.properties :as prop]
             [gin.core :as gin]))
 
-(defspec floats-are-all-floats
-  100
+(def runs 100)
+
+(defspec floats-are-all-floats runs
   (prop/for-all [f gin/float]
                 (= java.lang.Float (class f))))
 
-(defspec doubles-are-all-doubles
-  100
+(defspec doubles-are-all-doubles runs
   (prop/for-all [d gin/double]
                 (= java.lang.Double (class d))))
