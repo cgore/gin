@@ -8,14 +8,14 @@
 
 (def runs 100)
 
-(defspec string-alpha-are-all-alpha runs
-  (prop/for-all [s s/string-alpha]
+(defspec alpha-are-all-alpha runs
+  (prop/for-all [s s/alpha]
                 (re-matches #"[a-zA-Z]*" s)))
 
-(defspec string-alpha-lower-are-all-alpha-lower runs
-  (prop/for-all [s s/string-alpha-lower]
+(defspec alpha-lower-are-all-alpha-lower runs
+  (prop/for-all [s s/alpha-lower]
                 (re-matches #"[a-z]*" s)))
 
-(defspec string-alpha-upper-are-all-alpha-upper runs
-  (prop/for-all [s s/string-alpha-upper]
+(defspec alpha-upper-are-all-alpha-upper runs
+  (prop/for-all [s s/alpha-upper]
                 (re-matches #"[A-Z]*" s)))
