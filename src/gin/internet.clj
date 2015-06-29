@@ -45,3 +45,11 @@
   (gen/such-that #(<= 1 (count %) 253)
                  (gen/fmap (partial join ".")
                            (gen/vector domain-name-label))))
+
+(def valid-scheme-characters
+  (seq "abcdefghijklmnopqrstuvwxyz0123456789+.-"))
+
+(def scheme
+  (gen/fmap #(join [(first %) (join (second %))])
+            (gen/tuple gin.char/alpha-lower
+                       (gen/vector (gen/elements valid-scheme-characters)))))
