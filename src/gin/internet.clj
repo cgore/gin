@@ -91,3 +91,20 @@
                          port)
                     (format "%s@%s:%d" user-info host port)))
             (gen/tuple user-information domain-name port)))
+
+(def path-segment
+  "Generates a single URI path segment."
+  (gen/fmap join (gen/vector (gen/one-of [gen/char-alphanumeric
+                                          (gen/elements (seq "-._~!$&'()*+,;=:@"))
+                                          (gen/fmap join
+                                                    (gen/tuple (gen/return "%")
+                                                               gin.char/hex
+                                                               gin.char/hex))]))))
+
+(def path
+  "Generates a URI path."
+  (gen/one-of [(gen/return "")
+               (gen/fmap join
+                         (gen/tuple (gen/elements ["/" ""])
+                                    (gen/fmap (partial join "/")
+                                              (gen/vector path-segment))))]))
