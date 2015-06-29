@@ -108,3 +108,34 @@
                          (gen/tuple (gen/elements ["/" ""])
                                     (gen/fmap (partial join "/")
                                               (gen/vector path-segment))))]))
+
+(def query
+  "Generates a URI query segment."
+  (gen/fmap (partial join "&")
+            (gen/vector (gen/fmap (partial join "=")
+                                  (gen/tuple (gen/not-empty gen/string-alphanumeric)
+                                             (gen/not-empty gen/string-alphanumeric))))))
+
+(def fragment
+  "Generates a URI fragment segment."
+  gen/string-alphanumeric)
+
+(def hierarchal-part
+  "Generates the hierarchal part of a URI."
+  (gen/fmap join (gen/tuple authority path)))
+
+(def uri
+  "Generates a URI."
+  (gen/fmap (fn [[scheme hier query fragment]]
+              (let [result (join ":" [scheme hier])
+                    result (if (empty? query)
+                             result
+                             (join "?" [result query]))
+                    result (if (empty? fragment)
+                             result
+                             (join "#" [result fragment]))]
+                result))
+            (gen/tuple scheme
+                       hierarchal-part
+                       query
+                       fragment)))
