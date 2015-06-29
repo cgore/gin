@@ -50,6 +50,12 @@
   (seq "abcdefghijklmnopqrstuvwxyz0123456789+.-"))
 
 (def scheme
+  "This generates a random valid URI scheme identifier. This is, for example,
+  the 'http' in a normal web link."
   (gen/fmap #(join [(first %) (join (second %))])
             (gen/tuple gin.char/alpha-lower
                        (gen/vector (gen/elements valid-scheme-characters)))))
+
+(def port
+  "Generates a valid port number."
+  (gen/choose 1 65535))
