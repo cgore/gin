@@ -1,7 +1,8 @@
 (ns gin.internet
   "Generates all sorts of Internet-related things."
   (:require [clojure.test.check.generators :as gen]
-            [clojure.string :refer [join]]))
+            [clojure.string :refer [join]]
+            gin.string))
 
 (def ipv4-address
   "This generates IPv4 address strings, things like \"192.168.0.1\"."
@@ -56,6 +57,37 @@
             (gen/tuple gin.char/alpha-lower
                        (gen/vector (gen/elements valid-scheme-characters)))))
 
+(def user-information
+  (gen/fmap (fn [[login password]]
+              (cond (empty? login)
+                    ""
+                    (and (not (empty? login)) (empty? password))
+                    login
+                    (and (not (empty? login)) (not (empty? password)))
+                    (format "%s:%s" login password)))
+            (gen/tuple gin.string/alpha
+                       (gen/one-of [(gen/return nil)
+                                    gin.string/alpha]))))
+
 (def port
   "Generates a valid port number."
-  (gen/choose 1 65535))
+  (gen/one-of [(gen/return nil)
+               (gen/choose 1 65535)]))
+
+(def authority
+  "Generates the authority segment of a URI,
+  such as 'joe:s3cr3t@www.foo.com:1234'."
+  (gen/fmap (fn [[user-info host port]]
+              (cond (and (empty? user-info)
+                         (nil? port))
+                    host
+                    (and (empty? user-info)
+                         port)
+                    (format "%s:%d" host port)
+                    (and (not (empty? user-info))
+                         (nil? port))
+                    (format "%s@%s" user-info host)
+                    (and (not (empty? user-info))
+                         port)
+                    (format "%s@%s:%d" user-info host port)))
+            (gen/tuple user-information domain-name port)))
