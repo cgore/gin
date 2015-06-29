@@ -9,8 +9,8 @@
 
 (def alpha-lower
   "Generate lower-case alpha strings"
-  (gen/fmap clojure.string/lower-case string-alpha))
+  (gen/fmap clojure.string/lower-case alpha))
 
 (def alpha-upper
   "Generate upper-case alpha strings"
-  (gen/fmap clojure.string/upper-case string-alpha))
+  (gen/fmap clojure.string/upper-case alpha))
