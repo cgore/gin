@@ -10,6 +10,33 @@ All of the generators!
 
 ## Usage
 
+### `gin.char`
+
+You can generate lowercase characters.
+
+```clojure
+(gen/sample gin.char/alpha-lower)
+;; => (\h \b \d \u \d \j \v \o \p \l)
+```
+
+You can generate uppercase characters.
+
+```clojure
+(gen/sample gin.char/alpha-upper)
+;; => (\H \E \G \K \R \U \I \N \T \K)
+```
+
+You can generate hex number characters, in lowercase, uppercase, or mixed case.
+
+```clojure
+(gen/sample gin.char/hex-lower)
+;; => (\5 \7 \3 \e \6 \5 \1 \5 \e \3)
+(gen/sample gin.char/hex-upper)
+;; => (\0 \1 \8 \9 \9 \5 \4 \A \F \9)
+(gen/sample gin.char/hex)
+;; => (\6 \3 \4 \1 \3 \8 \1 \2 \8 \F)
+```
+
 ### `gin.core`
 
 You can generate doubles (`java.lang.Double`).
@@ -36,19 +63,19 @@ You can generate lots of different strings.
 You can restrict the string to only letters with `string-alpha`.
 
 ```clojure
-(gen/sample string-alpha)
+(gen/sample alpha)
 ;; => ("" "" "Im" "" "vgS" "S" "ry" "tFROxf" "zzUKDEo" "XOIUr")
 ```
 You can restrict the string to only lower-case letters with `string-alpha-lower`.
 
 ```clojure
-(gen/sample string-alpha-lower)
+(gen/sample alpha-lower)
 ;; => ("" "x" "om" "nbb" "" "tx" "p" "hmaj" "owdzu" "qkypmut")
 ```
 You can restrict the string to only upper-case letters with `string-alpha-upper`.
 
 ```clojure
-(gen/sample string-alpha-upper)
+(gen/sample alpha-upper)
 ;; => ("" "D" "" "" "K" "QY" "DZWM" "GFJZLI" "BVGRNY" "YZUKLGQBD")
 ```
 
