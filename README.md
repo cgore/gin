@@ -8,6 +8,8 @@ Some people like a splash of [tonic](https://github.com/cgore/tonic) in their gi
 
 [![Build Status](https://travis-ci.org/cgore/gin.svg?branch=master)](https://travis-ci.org/cgore/gin)
 
+[![Dependencies Status](http://jarkeeper.com/cgore/gin/status.png)](http://jarkeeper.com/cgore/gin)
+
 ## Usage
 
 ### `gin.char`
