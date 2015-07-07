@@ -2,7 +2,7 @@
 
 All of the generators!
 
-
+Some people like a splash of [tonic](https://github.com/cgore/tonic) in their gin.
 
 [![Clojars Project](http://clojars.org/gin/latest-version.svg)](http://clojars.org/gin)
 
