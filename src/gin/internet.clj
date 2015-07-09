@@ -2,6 +2,7 @@
   "Generates all sorts of Internet-related things."
   (:require [clojure.test.check.generators :as gen]
             [clojure.string :refer [join]]
+            gin.char
             gin.string))
 
 (def ipv4-address
