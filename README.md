@@ -66,6 +66,16 @@ You can generate floats (`java.lang.Float`).
 ```
 ### `gin.internet`
 
+You can generate MAC addresses.
+
+```clojure
+(gen/sample mac-address)
+;; => ("02:e4:f1:a6:54:82" "48:d2:73:2c:d6:f3" "cf:de:b9:13:52:64"
+       "f6:10:b1:a7:25:bb" "0f:71:e2:ed:7b:63" "12:f5:a3:28:a0:49"
+       "71:fd:53:09:8a:fa" "9d:66:b3:ae:df:a9" "e6:f9:3a:51:67:48"
+       "73:51:b2:cf:69:50")
+```
+
 You can generate IPv4 addresses.
 
 ```clojure

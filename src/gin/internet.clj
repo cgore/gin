@@ -5,13 +5,15 @@
             gin.char
             gin.string))
 
+(def mac-address
+  "This generates MAC address strings, things like \"02:e4:f1:a6:54:82\"."
+  (gen/fmap #(clojure.string/join ":" (map (partial format "%02x") %))
+            (gen/vector (gen/choose 0x0 0xff) 6)))
+
 (def ipv4-address
   "This generates IPv4 address strings, things like \"192.168.0.1\"."
   (gen/fmap #(clojure.string/join "." %)
-            (gen/tuple (gen/choose 0 255)
-                       (gen/choose 0 255)
-                       (gen/choose 0 255)
-                       (gen/choose 0 255))))
+            (gen/vector (gen/choose 0x0 0xff) 4)))
 
 ;;; TODO: add support for generating shortened IPv6 addresses.
 (def ipv6-address
