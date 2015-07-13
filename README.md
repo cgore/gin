@@ -28,6 +28,13 @@ You can generate uppercase characters.
 ;; => (\H \E \G \K \R \U \I \N \T \K)
 ```
 
+You can generate numeric digit characters.
+
+```clojure
+(gen/sample gin.char/digit)
+;; => (\3 \0 \0 \1 \9 \5 \1 \5 \6 \6)
+```
+
 You can generate hex number characters, in lowercase, uppercase, or mixed case.
 
 ```clojure

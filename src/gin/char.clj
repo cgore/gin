@@ -2,6 +2,8 @@
   "Generates all sorts of strings."
   (:require [clojure.test.check.generators :as gen]))
 
+;;; You can already generate alpha characters with `gen/char-alpha`.
+
 (def alpha-lower
   "Generate lowercase alpha characters."
   (gen/fmap char
@@ -11,6 +13,10 @@
   "Generate uppercase alpha characters."
   (gen/fmap char
             (gen/one-of [(gen/choose 65 90)])))
+
+(def digit
+  "Generates numeric digit characters."
+  (gen/elements (seq "0123456789")))
 
 (def hex-lower
   "Generates hex number characters, using lowercase letters for a-f."
