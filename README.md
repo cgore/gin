@@ -1,16 +1,12 @@
-# gin
+# gin  [![Build Status](https://travis-ci.org/cgore/gin.svg?branch=master)](https://travis-ci.org/cgore/gin) [![Dependencies Status](http://jarkeeper.com/cgore/gin/status.png)](http://jarkeeper.com/cgore/gin)
+
+[![Clojars Project](http://clojars.org/gin/latest-version.svg)](http://clojars.org/gin)
 
 All of the generators!
 
 Gin is a library of additional generally useful generators using [test.check](https://github.com/clojure/test.check).
 
 Some people like a splash of [tonic](https://github.com/cgore/tonic) in their gin.
-
-[![Clojars Project](http://clojars.org/gin/latest-version.svg)](http://clojars.org/gin)
-
-[![Build Status](https://travis-ci.org/cgore/gin.svg?branch=master)](https://travis-ci.org/cgore/gin)
-
-[![Dependencies Status](http://jarkeeper.com/cgore/gin/status.png)](http://jarkeeper.com/cgore/gin)
 
 ## Usage
 
