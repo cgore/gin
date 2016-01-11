@@ -4,7 +4,7 @@
 
 (def double
   "This generates a java.lang.Double."
-  (gen/fmap rand gen/int))
+  gen/double)
 
 (def float
   "This generates a java.lang.Float."
