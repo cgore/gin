@@ -1,4 +1,4 @@
-(defproject gin "0.3.4"
+(defproject gin "0.3.5"
   :description "All the generators you need and/or want."
   :url "https://github.com/cgore/gin"
   :license {:name "Eclipse Public License"
