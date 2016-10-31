@@ -46,6 +46,11 @@ You can generate hex number characters, in lowercase, uppercase, or mixed case.
 
 ### `gin.core`
 
+```clojure
+(gin/one gen/int)
+;; => -6
+```
+
 You can generate doubles (`java.lang.Double`).
 
 ```clojure

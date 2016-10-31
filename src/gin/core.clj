@@ -5,7 +5,7 @@
 (defn one
   "Generates a sample of only once instance (mostly just useful in the repl.)"
   [x]
-  (first (gen/sample x 1)))
+  (rand-nth (gen/sample x)))
 
 (def double
   "This generates a java.lang.Double."
