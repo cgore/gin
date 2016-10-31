@@ -8,6 +8,10 @@
 
 (def runs 100)
 
+(deftest one-test
+  (testing "one generates one sample (useful for the repl mostly)"
+    (is (instance? java.lang.Double (gin/one gen/double)))))
+
 (defspec floats-are-all-floats runs
   (prop/for-all [f gin/float]
                 (= java.lang.Float (class f))))

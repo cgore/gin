@@ -2,6 +2,11 @@
   (:refer-clojure :exclude [double float])
   (:require [clojure.test.check.generators :as gen]))
 
+(defn one
+  "Generates a sample of only once instance (mostly just useful in the repl.)"
+  [x]
+  (first (gen/sample x 1)))
+
 (def double
   "This generates a java.lang.Double."
   gen/double)
