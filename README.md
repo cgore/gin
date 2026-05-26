@@ -157,7 +157,6 @@ You can restrict the string to only upper-case letters with `alpha-upper`.
 
 ## License
 
-Copyright © 2015 Christopher Mark Gore, Soli Deo Gloria, all rights reserved.
+Copyright © 2015-2026 Christopher Mark Gore, Soli Deo Gloria, all rights reserved.
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
